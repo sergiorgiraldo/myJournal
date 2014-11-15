@@ -11,10 +11,8 @@ namespace MyJournal
         
         [DllImport("USER32.DLL", CharSet = CharSet.Unicode)]
         public static extern IntPtr FindWindow(String lpClassName, String lpWindowName);
-
         [DllImport("USER32.DLL")]
         public static extern bool SetForegroundWindow(IntPtr hWnd);
-
         [DllImport("user32.dll")]
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
@@ -29,7 +27,6 @@ namespace MyJournal
 
             SetForegroundWindow(handle);
             ShowWindow(handle, 9); //restore
-
         }
 
         [STAThread]
@@ -64,6 +61,5 @@ namespace MyJournal
         {
             MessageBox.Show(e.Exception.Message, @"UPS");
         }
-
     }
 }
