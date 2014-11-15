@@ -1,0 +1,2 @@
+C:\Users\Sérgio\Source\myJournal\bin\Debug\MyJournal.exe.config
+C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.csproj.ResolveComReference.cache
