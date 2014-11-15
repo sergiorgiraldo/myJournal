@@ -54,7 +54,7 @@ namespace MyJournal
         private static void UnhandledExceptionFunction(object sender, UnhandledExceptionEventArgs e)
         {
             var ex = (Exception)e.ExceptionObject;
-            MessageBox.Show(ex.Message, @"UPS");
+            MessageBox.Show(ex.Message, @"UPS...");
         }
 
         private static void ThreadExceptionFunction(object sender, ThreadExceptionEventArgs e)
