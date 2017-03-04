@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Application = Microsoft.Office.Interop.Outlook.Application;
@@ -27,7 +28,7 @@ namespace MyJournal
 
         private void Form1Load(object sender, EventArgs e)
         {
-            Height = 205;
+            Height = 300;
 
             SetIcon(1);
 
@@ -41,15 +42,33 @@ namespace MyJournal
 
             if (!Directory.Exists(_path))
                 Directory.CreateDirectory(_path);
+
+            LoadToDo();
+        }
+
+        private void LoadToDo()
+        {
+            if (!File.Exists(Path.Combine(_path, "ToDo.txt"))) return;
+            var items = new List<string>();
+            using (var stream = File.OpenRead(Path.Combine(_path, "ToDo.txt")))  
+            using (var reader = new StreamReader(stream))  
+            {
+                string line;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    items.Add(line);
+                }
+            }
+
+            listBox1.Items.AddRange(items.ToArray());
         }
 
         private void SetIcon(int tipo)
         {
-            // ReSharper disable AssignNullToNotNullAttribute
             string basePath =
                 Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                              "Resources");
-            // ReSharper restore AssignNullToNotNullAttribute
 
             switch (tipo)
             {
@@ -76,7 +95,6 @@ namespace MyJournal
             if (tbxTarefa.Text.Length > 6 && tbxTarefa.Text.Contains("@") && 
                 !tbxTarefa.Text.ToLowerInvariant().StartsWith("td"))
             {
-                //string fim = tbxTarefa.Text.Substring(tbxTarefa.Text.Length - 6);
                 string fim = tbxTarefa.Text.Substring(tbxTarefa.Text.IndexOf('@'));
                 if (fim.StartsWith("@"))
                 {
@@ -98,7 +116,6 @@ namespace MyJournal
 
                     if (string.IsNullOrEmpty(match.Groups[1].Value))
                     {
-                        //if (_todoApp == "OUTLOOK")
                             CreateTaskInOutlook(tarefaTask, data, tbxTarefa.Text.EndsWith("*"));
                         
                     }
@@ -189,22 +206,10 @@ namespace MyJournal
             if (check)
             {
                 if (tarefa.ToUpper().StartsWith("TD"))
+                {
                     GravarAFazer(tarefa.Substring(2));
-                /*
-                if (tarefa.ToUpper().StartsWith("FAZER:"))
-                    GravarAFazer(tarefa.Substring(6), "2");
-                else if (tarefa.ToUpper().StartsWith("0FAZER:") || tarefa.ToUpper().StartsWith("1FAZER:") ||
-                         tarefa.ToUpper().StartsWith("2FAZER:") || tarefa.ToUpper().StartsWith("3FAZER:"))
-                {
-                    GravarAFazer(tarefa.Substring(7), tarefa.Substring(0, 1));
+                    LoadToDo();
                 }
-                if (tarefa.ToUpper().StartsWith("TODO:"))
-                    GravarAFazer(tarefa.Substring(5), "2");
-                else if (tarefa.ToUpper().StartsWith("0TODO:") || tarefa.ToUpper().StartsWith("1TODO:") ||
-                         tarefa.ToUpper().StartsWith("2TODO:") || tarefa.ToUpper().StartsWith("3TODO:"))
-                {
-                    GravarAFazer(tarefa.Substring(6), tarefa.Substring(0, 1));
-                }*/
             }
             else
             {
@@ -214,7 +219,7 @@ namespace MyJournal
 
         private void GravarAFazer(string tarefa)
         {
-            string aFazerPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "todo.txt");
+            string aFazerPath = Path.Combine(_path, "todo.txt");
 
             File.AppendAllText(aFazerPath, tarefa + Environment.NewLine);
         }
@@ -226,34 +231,15 @@ namespace MyJournal
 
         private string GetPath()
         {
-            /*
-            dtTarefa = DateTime.ParseExact(tbxData.Text, "dd/MM/yyyy",
-                                           System.Globalization.CultureInfo.CurrentUICulture);
-
-            var offset = 1 - (int)dtTarefa.DayOfWeek;
-
-            var  dtSemana = dtTarefa.AddDays(offset > 0 ? -7 : offset);
-            string dtSemanaFormatada;
-            if (dtSemana.Month == DateTime.Now.Month)
-                dtSemanaFormatada = dtSemana.ToString("dd.MM.yyyy");
-            else
-                dtSemanaFormatada = "01." + DateTime.Now.ToString("MM.yyyy");
-
-            return Path.Combine(@"C:\Sergio\Journal", dtSemanaFormatada + ".txt");
-             */
             return Path.Combine(_path, DateTime.Now.ToString("dd.MM.yyyy") + ".txt");
-        }
-
-        private void LinkLabel1LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
         }
 
         private void Form1KeyDown(object sender, KeyEventArgs e)
         {
-            if (Height == 205)
+            if (Height == 300)
                 if (e.Alt && e.KeyCode == Keys.Down)
                     label1_DoubleClick(sender, null);
-            if (Height == 437)
+            if (Height == 510)
                 if (e.Alt && e.KeyCode == Keys.Up)
                     label1_DoubleClick(sender, null);
             if (e.Alt && e.KeyCode == Keys.C)
@@ -478,21 +464,6 @@ namespace MyJournal
             updPomodoro.Select(0,updPomodoro.Text.Length);
         }
 
-        private void updPomodoro_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        //private void button3_Click_1(object sender, EventArgs e)
-        //{
-        //    Process.Start(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
-        //                                 "todotxt.exe"));
-        //}
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void dateTimePicker2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)
@@ -509,10 +480,10 @@ namespace MyJournal
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            if (Height == 205)
+            if (Height == 300)
             {
                 label1.Text = "é";
-                Height = 437;
+                Height = 510;
                 ReadJournal();
 
                 textBox2.Visible = true;
@@ -522,7 +493,7 @@ namespace MyJournal
             else
             {
                 label1.Text = "ê";
-                Height = 205;
+                Height = 300;
                 textBox2.Visible = false;
             }
         }
@@ -560,6 +531,16 @@ namespace MyJournal
             }
         }
 
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            listBox1.Items.Remove(listBox1.SelectedItem);
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in listBox1.Items)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            File.WriteAllText(Path.Combine(_path, "ToDo.txt"), sb.ToString());
+        }
     }
 
     public class SortFiles

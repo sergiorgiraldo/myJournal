@@ -46,6 +46,7 @@ namespace MyJournal
             this.timerBarra = new System.Windows.Forms.Timer(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.updPomodoro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace MyJournal
             // 
             this.tbxTarefa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tbxTarefa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxTarefa.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTarefa.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxTarefa.ForeColor = System.Drawing.Color.Brown;
             this.tbxTarefa.Location = new System.Drawing.Point(5, 9);
             this.tbxTarefa.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -70,7 +71,7 @@ namespace MyJournal
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(557, 134);
+            this.button1.Location = new System.Drawing.Point(557, 231);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(61, 25);
@@ -89,7 +90,7 @@ namespace MyJournal
             0,
             0,
             0});
-            this.updPomodoro.Location = new System.Drawing.Point(5, 135);
+            this.updPomodoro.Location = new System.Drawing.Point(5, 232);
             this.updPomodoro.Maximum = new decimal(new int[] {
             59,
             0,
@@ -101,7 +102,7 @@ namespace MyJournal
             0,
             0});
             this.updPomodoro.Name = "updPomodoro";
-            this.updPomodoro.Size = new System.Drawing.Size(47, 23);
+            this.updPomodoro.Size = new System.Drawing.Size(47, 27);
             this.updPomodoro.TabIndex = 1;
             this.toolTip1.SetToolTip(this.updPomodoro, "Pomodoro");
             this.updPomodoro.Value = new decimal(new int[] {
@@ -111,7 +112,6 @@ namespace MyJournal
             0});
             this.updPomodoro.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.updPomodoro_HelpRequested);
             this.updPomodoro.Enter += new System.EventHandler(this.updPomodoro_Enter);
-            this.updPomodoro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.updPomodoro_KeyDown);
             // 
             // pomodoro
             // 
@@ -123,9 +123,9 @@ namespace MyJournal
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(368, 135);
+            this.textBox1.Location = new System.Drawing.Point(368, 232);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 23);
+            this.textBox1.Size = new System.Drawing.Size(178, 27);
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "procurar ...";
             this.toolTip1.SetToolTip(this.textBox1, "CTRL-F");
@@ -139,7 +139,7 @@ namespace MyJournal
             this.button2.FlatAppearance.BorderSize = 2;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(64, 134);
+            this.button2.Location = new System.Drawing.Point(64, 231);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(55, 25);
@@ -155,7 +155,7 @@ namespace MyJournal
             this.button4.FlatAppearance.BorderSize = 2;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(282, 134);
+            this.button4.Location = new System.Drawing.Point(282, 231);
             this.button4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(78, 25);
@@ -170,9 +170,9 @@ namespace MyJournal
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(131, 135);
+            this.dateTimePicker2.Location = new System.Drawing.Point(131, 232);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(121, 27);
             this.dateTimePicker2.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dateTimePicker2, "CTRl-ENTER para abrir o dia");
             this.dateTimePicker2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker2_KeyDown);
@@ -187,13 +187,13 @@ namespace MyJournal
             this.textBox2.BackColor = System.Drawing.Color.Silver;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Black;
-            this.textBox2.Location = new System.Drawing.Point(0, 166);
+            this.textBox2.Location = new System.Drawing.Point(0, 260);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(624, 247);
+            this.textBox2.Size = new System.Drawing.Size(624, 209);
             this.textBox2.TabIndex = 9;
             this.textBox2.Text = "~~~~~";
             this.textBox2.Visible = false;
@@ -204,20 +204,34 @@ namespace MyJournal
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label1.Location = new System.Drawing.Point(258, 141);
+            this.label1.Location = new System.Drawing.Point(258, 238);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 15);
+            this.label1.Size = new System.Drawing.Size(24, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "ê";
             this.label1.Click += new System.EventHandler(this.label1_DoubleClick);
             // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 28;
+            this.listBox1.Location = new System.Drawing.Point(5, 129);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(613, 88);
+            this.listBox1.TabIndex = 10;
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            // 
             // Form1
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(624, 413);
+            this.ClientSize = new System.Drawing.Size(624, 469);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.button4);
@@ -286,6 +300,7 @@ namespace MyJournal
         private DateTimePicker dateTimePicker2;
         private TextBox textBox2;
         private Label label1;
+        private ListBox listBox1;
     }
 }
 
