@@ -28,7 +28,7 @@ namespace MyJournal
 
         private void Form1Load(object sender, EventArgs e)
         {
-            Height = 300;
+            Height = 250;
 
             SetIcon(1);
 
@@ -239,10 +239,10 @@ namespace MyJournal
 
         private void Form1KeyDown(object sender, KeyEventArgs e)
         {
-            if (Height == 300)
+            if (Height == 250)
                 if (e.Alt && e.KeyCode == Keys.Down)
                     label1_DoubleClick(sender, null);
-            if (Height == 510)
+            if (Height == 460)
                 if (e.Alt && e.KeyCode == Keys.Up)
                     label1_DoubleClick(sender, null);
             if (e.Alt && e.KeyCode == Keys.C)
@@ -483,10 +483,10 @@ namespace MyJournal
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            if (Height == 300)
+            if (Height == 250)
             {
                 label1.Text = "é";
-                Height = 510;
+                Height = 460;
                 ReadJournal();
 
                 textBox2.Visible = true;
@@ -496,7 +496,7 @@ namespace MyJournal
             else
             {
                 label1.Text = "ê";
-                Height = 300;
+                Height = 250;
                 textBox2.Visible = false;
             }
         }
