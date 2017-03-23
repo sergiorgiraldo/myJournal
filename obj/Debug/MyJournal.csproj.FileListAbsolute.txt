@@ -1,2 +1,14 @@
 C:\Users\Sérgio\Source\myJournal\bin\Debug\MyJournal.exe.config
 C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.csproj.ResolveComReference.cache
+C:\Users\sgiraldo\source\myJournal\bin\Debug\Resources\clock.ico
+C:\Users\sgiraldo\source\myJournal\bin\Debug\Resources\note.ico
+C:\Users\sgiraldo\source\myJournal\bin\Debug\MyJournal.exe.config
+C:\Users\sgiraldo\source\myJournal\bin\Debug\MyJournal.exe
+C:\Users\sgiraldo\source\myJournal\bin\Debug\MyJournal.pdb
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.csprojResolveAssemblyReference.cache
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.csproj.ResolveComReference.cache
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.Form1.resources
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.FormResultado.resources
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.csproj.GenerateResource.Cache
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.exe
+C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.pdb

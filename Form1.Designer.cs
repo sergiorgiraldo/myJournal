@@ -102,7 +102,7 @@ namespace MyJournal
             0,
             0});
             this.updPomodoro.Name = "updPomodoro";
-            this.updPomodoro.Size = new System.Drawing.Size(47, 27);
+            this.updPomodoro.Size = new System.Drawing.Size(47, 23);
             this.updPomodoro.TabIndex = 1;
             this.toolTip1.SetToolTip(this.updPomodoro, "Pomodoro");
             this.updPomodoro.Value = new decimal(new int[] {
@@ -125,7 +125,7 @@ namespace MyJournal
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
             this.textBox1.Location = new System.Drawing.Point(368, 232);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 27);
+            this.textBox1.Size = new System.Drawing.Size(178, 23);
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "procurar ...";
             this.toolTip1.SetToolTip(this.textBox1, "CTRL-F");
@@ -172,7 +172,7 @@ namespace MyJournal
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(131, 232);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 27);
+            this.dateTimePicker2.Size = new System.Drawing.Size(121, 23);
             this.dateTimePicker2.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dateTimePicker2, "CTRl-ENTER para abrir o dia");
             this.dateTimePicker2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker2_KeyDown);
@@ -206,7 +206,7 @@ namespace MyJournal
             this.label1.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label1.Location = new System.Drawing.Point(258, 238);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 19);
+            this.label1.Size = new System.Drawing.Size(19, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "ê";
             this.label1.Click += new System.EventHandler(this.label1_DoubleClick);
@@ -217,7 +217,8 @@ namespace MyJournal
             this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.Color.DarkGreen;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 28;
+            this.listBox1.HorizontalScrollbar = true;
+            this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(5, 129);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(613, 88);
@@ -227,7 +228,7 @@ namespace MyJournal
             // Form1
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(624, 469);

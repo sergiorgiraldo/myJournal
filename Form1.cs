@@ -49,6 +49,9 @@ namespace MyJournal
         private void LoadToDo()
         {
             if (!File.Exists(Path.Combine(_path, "ToDo.txt"))) return;
+
+            listBox1.Items.Clear();
+
             var items = new List<string>();
             using (var stream = File.OpenRead(Path.Combine(_path, "ToDo.txt")))  
             using (var reader = new StreamReader(stream))  
