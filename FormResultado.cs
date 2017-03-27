@@ -21,11 +21,12 @@ namespace MyJournal
 
         private void FormResultado_Load(object sender, EventArgs e)
         {
-            Text = @"Resultados para '" + criterio + @"' : " + resultados.Count + @" registro" + (resultados.Count>1?"s":"");
+            var cnt = resultados.Count / 2;
+            Text = @"Resultados para '" + criterio + @"' : " + cnt + @" registro" + (cnt>1?"s":"");
 
             foreach (var resultado in resultados)
             {
-                listBox1.Items.Add(resultado.Replace(Environment.NewLine, "§§"));
+                listBox1.Items.Add(resultado.Replace(Environment.NewLine, "§"));
             }
         }
 
