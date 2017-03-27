@@ -170,7 +170,7 @@ namespace MyJournal
                 timerBarra.Enabled = true;
                 TopMost = true;
                 SetIcon(2);
-                Opacity = 1;
+                //Opacity = 1;
                 ShowBtnTimers(true);
             }
 
@@ -248,7 +248,7 @@ namespace MyJournal
             if (Height == 200)
                 if (e.Alt && e.KeyCode == Keys.Down)
                     label1_DoubleClick(sender, null);
-            if (Height == 420)
+            if (Height == 410)
                 if (e.Alt && e.KeyCode == Keys.Up)
                     label1_DoubleClick(sender, null);
             if (e.Alt && e.KeyCode == Keys.C)
@@ -290,7 +290,7 @@ namespace MyJournal
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
             TopMost = false;
             SetIcon(1);
-            Opacity = 0.85;
+            //Opacity = 0.85;
             ShowBtnTimers(false);
         }
 
@@ -495,7 +495,7 @@ namespace MyJournal
             if (Height == 200)
             {
                 label1.Text = "é";
-                Height = 420;
+                Height = 410;
                 ReadJournal();
 
                 textBox2.Visible = true;

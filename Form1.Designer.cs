@@ -233,11 +233,11 @@ namespace MyJournal
             // 
             // btnStopTimer
             // 
-            this.btnStopTimer.Font = new System.Drawing.Font("Webdings", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.btnStopTimer.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.btnStopTimer.ForeColor = System.Drawing.Color.Red;
             this.btnStopTimer.Location = new System.Drawing.Point(5, 140);
             this.btnStopTimer.Name = "btnStopTimer";
-            this.btnStopTimer.Size = new System.Drawing.Size(47, 24);
+            this.btnStopTimer.Size = new System.Drawing.Size(47, 25);
             this.btnStopTimer.TabIndex = 12;
             this.btnStopTimer.Text = "<";
             this.btnStopTimer.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@ namespace MyJournal
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(624, 379);
             this.Controls.Add(this.btnStopTimer);
             this.Controls.Add(this.listBox1);
@@ -263,7 +263,7 @@ namespace MyJournal
             this.Controls.Add(this.tbxTarefa);
             this.Controls.Add(this.textBox2);
             this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -271,7 +271,6 @@ namespace MyJournal
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Journal";
             this.Load += new System.EventHandler(this.Form1Load);
