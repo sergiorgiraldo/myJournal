@@ -20,7 +20,8 @@ namespace MyJournal
         private DateTime _horaInicioPomodoro;
         private string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),@"Journal");
         private string _tarefaPomodoro;
-        //private string _todoApp = ConfigurationManager.AppSettings["todoApp"];
+        DateTime toGo;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace MyJournal
 
         private void Form1Load(object sender, EventArgs e)
         {
-            Height = 250;
+            Height = 200;
 
             SetIcon(1);
 
@@ -126,7 +127,11 @@ namespace MyJournal
                 }
             }
 
-            string tmpConteudo = DateTime.Now.ToString("yyyyMMdd") + " " + hora + "\t" + tarefa + Environment.NewLine;
+            string tmpConteudo = DateTime.Now.ToString("yyyyMMdd") + " " + hora + "\t";
+            if (tarefa.ToUpperInvariant().StartsWith("TD"))
+                tmpConteudo += tarefa.Substring(2) + " [ToDo]" + Environment.NewLine;
+            else
+                tmpConteudo += tarefa + Environment.NewLine;
 
             string path = GetPath();
 
@@ -166,6 +171,7 @@ namespace MyJournal
                 TopMost = true;
                 SetIcon(2);
                 Opacity = 1;
+                ShowBtnTimers(true);
             }
 
             tbxTarefa.Text = "";
@@ -239,10 +245,10 @@ namespace MyJournal
 
         private void Form1KeyDown(object sender, KeyEventArgs e)
         {
-            if (Height == 250)
+            if (Height == 200)
                 if (e.Alt && e.KeyCode == Keys.Down)
                     label1_DoubleClick(sender, null);
-            if (Height == 460)
+            if (Height == 420)
                 if (e.Alt && e.KeyCode == Keys.Up)
                     label1_DoubleClick(sender, null);
             if (e.Alt && e.KeyCode == Keys.C)
@@ -278,17 +284,20 @@ namespace MyJournal
             timerBarra.Enabled = false;
             Text = @"Journal";
             updPomodoro.Value = 20;
-            MessageBox.Show(string.Format(@"FIM::{0}{1}Next !", _tarefaPomodoro, Environment.NewLine), @"Pomodoro",
+
+            if (!sender.Equals(btnStopTimer))
+                MessageBox.Show(string.Format(@"FIM::{0}{1}Next !", _tarefaPomodoro, Environment.NewLine), @"Pomodoro",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
             TopMost = false;
             SetIcon(1);
             Opacity = 0.85;
+            ShowBtnTimers(false);
         }
 
         private void TimerBarraTick(object sender, EventArgs e)
         {
             var tempoTotal = new DateTime(1900, 1, 1, 0, (int) updPomodoro.Value, 0);
-            DateTime toGo = tempoTotal - (DateTime.Now - _horaInicioPomodoro);
+            toGo = tempoTotal - (DateTime.Now - _horaInicioPomodoro);
             Text = string.Format("Journal - {0}:{1}", toGo.Minute.ToString("00"), toGo.Second.ToString("00"));
         }
 
@@ -483,10 +492,10 @@ namespace MyJournal
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            if (Height == 250)
+            if (Height == 200)
             {
                 label1.Text = "é";
-                Height = 460;
+                Height = 420;
                 ReadJournal();
 
                 textBox2.Visible = true;
@@ -496,8 +505,9 @@ namespace MyJournal
             else
             {
                 label1.Text = "ê";
-                Height = 250;
+                Height = 200;
                 textBox2.Visible = false;
+                dateTimePicker2.Value = DateTime.Today;
             }
         }
 
@@ -543,6 +553,49 @@ namespace MyJournal
                 sb.AppendLine(item.ToString());
             }
             File.WriteAllText(Path.Combine(_path, "ToDo.txt"), sb.ToString());
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            ReadJournal();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void btnPauseTimer_Click(object sender, EventArgs e)
+        {
+            if (timerBarra.Enabled)
+            {
+                timerBarra.Stop();
+                pomodoro.Stop();
+            }
+            else
+            {
+                timerBarra.Start();
+                pomodoro.Start();
+            }
+        }
+
+        private void btnStopTimer_Click(object sender, EventArgs e)
+        {
+            PomodoroTick(btnStopTimer, EventArgs.Empty);
+        }
+
+        private void ShowBtnTimers(bool show)
+        {
+            if (show)
+            {
+                btnStopTimer.Visible = true;
+                updPomodoro.Visible = false;
+            }
+            else
+            {
+                btnStopTimer.Visible = false;
+                updPomodoro.Visible = true;
+            }
         }
     }
 
