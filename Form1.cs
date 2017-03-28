@@ -223,6 +223,7 @@ namespace MyJournal
             else
             {
                 GravarAFazer(tarefa);
+                LoadToDo();
             }
         }
 
