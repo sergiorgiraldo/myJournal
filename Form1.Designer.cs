@@ -103,7 +103,7 @@ namespace MyJournal
             0,
             0});
             this.updPomodoro.Name = "updPomodoro";
-            this.updPomodoro.Size = new System.Drawing.Size(47, 27);
+            this.updPomodoro.Size = new System.Drawing.Size(47, 23);
             this.updPomodoro.TabIndex = 1;
             this.toolTip1.SetToolTip(this.updPomodoro, "Pomodoro");
             this.updPomodoro.Value = new decimal(new int[] {
@@ -130,7 +130,7 @@ namespace MyJournal
             this.textBox1.ForeColor = System.Drawing.Color.Gray;
             this.textBox1.Location = new System.Drawing.Point(368, 142);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 27);
+            this.textBox1.Size = new System.Drawing.Size(178, 23);
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "procurar ...";
             this.toolTip1.SetToolTip(this.textBox1, "CTRL-F");
@@ -177,7 +177,7 @@ namespace MyJournal
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(131, 142);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 27);
+            this.dateTimePicker2.Size = new System.Drawing.Size(121, 23);
             this.dateTimePicker2.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dateTimePicker2, "CTRl-ENTER para abrir o dia");
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
@@ -190,7 +190,7 @@ namespace MyJournal
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Silver;
+            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,7 +212,7 @@ namespace MyJournal
             this.label1.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label1.Location = new System.Drawing.Point(258, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 19);
+            this.label1.Size = new System.Drawing.Size(19, 15);
             this.label1.TabIndex = 4;
             this.label1.Text = "ê";
             this.label1.Click += new System.EventHandler(this.label1_DoubleClick);
@@ -221,13 +221,13 @@ namespace MyJournal
             // 
             this.listBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.listBox1.ForeColor = System.Drawing.Color.Black;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.ItemHeight = 28;
+            this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(5, 70);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(613, 60);
+            this.listBox1.Size = new System.Drawing.Size(613, 67);
             this.listBox1.TabIndex = 10;
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
@@ -247,7 +247,7 @@ namespace MyJournal
             // Form1
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(624, 379);
