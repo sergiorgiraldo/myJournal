@@ -21,6 +21,7 @@ namespace MyJournal
         private string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),@"Journal");
         private string _tarefaPomodoro;
         DateTime toGo;
+        FormPomodorocs frmPomodoro;
 
         public Form1()
         {
@@ -32,6 +33,9 @@ namespace MyJournal
             Height = 200;
 
             SetIcon(1);
+
+            frmPomodoro = new FormPomodorocs();
+            frmPomodoro.Hide();
 
             tbxTarefa.Text = "";
             tbxTarefa.Focus();
@@ -168,6 +172,7 @@ namespace MyJournal
                 pomodoro.Enabled = true;
                 _horaInicioPomodoro = DateTime.Now;
                 timerBarra.Enabled = true;
+                frmPomodoro.Show();
                 TopMost = true;
                 SetIcon(2);
                 //Opacity = 1;
@@ -285,7 +290,7 @@ namespace MyJournal
             timerBarra.Enabled = false;
             Text = @"Journal";
             updPomodoro.Value = 20;
-
+            frmPomodoro.Hide();
             if (!sender.Equals(btnStopTimer))
                 MessageBox.Show(string.Format(@"FIM::{0}{1}Next !", _tarefaPomodoro, Environment.NewLine), @"Pomodoro",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -300,6 +305,7 @@ namespace MyJournal
             var tempoTotal = new DateTime(1900, 1, 1, 0, (int) updPomodoro.Value, 0);
             toGo = tempoTotal - (DateTime.Now - _horaInicioPomodoro);
             Text = string.Format("Journal - {0}:{1}", toGo.Minute.ToString("00"), toGo.Second.ToString("00"));
+            frmPomodoro.UpdateLabel(toGo.Minute.ToString("00") + ":" + toGo.Second.ToString("00"));
         }
 
         private void textBox1_Enter(object sender, EventArgs e)

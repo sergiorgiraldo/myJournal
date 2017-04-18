@@ -82,6 +82,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPomodorocs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPomodorocs.Designer.cs">
+      <DependentUpon>FormPomodorocs.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResultado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="Program.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPomodorocs.resx">
+      <DependentUpon>FormPomodorocs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResultado.resx">
       <DependentUpon>FormResultado.cs</DependentUpon>
