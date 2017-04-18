@@ -52,12 +52,13 @@
             this.ClientSize = new System.Drawing.Size(92, 48);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Location = new System.Drawing.Point(1200, 50);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormPomodorocs";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "pomodoro";
             this.TopMost = true;
             this.ResumeLayout(false);
