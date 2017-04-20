@@ -560,6 +560,7 @@ namespace MyJournal
             {
                 sb.AppendLine(item.ToString());
             }
+            label2.Text = listBox1.Items.Count.ToString();
             File.WriteAllText(Path.Combine(_path, "ToDo.txt"), sb.ToString());
         }
 

@@ -247,15 +247,15 @@ namespace MyJournal
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Gainsboro;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(603, 59);
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(599, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 20);
+            this.label2.Size = new System.Drawing.Size(19, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "0";
             // 
