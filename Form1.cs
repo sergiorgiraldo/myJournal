@@ -70,6 +70,7 @@ namespace MyJournal
             }
 
             listBox1.Items.AddRange(items.ToArray());
+            label2.Text = listBox1.Items.Count.ToString();
         }
 
         private void SetIcon(int tipo)

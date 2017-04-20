@@ -48,6 +48,7 @@ namespace MyJournal
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnStopTimer = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.updPomodoro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,6 +245,20 @@ namespace MyJournal
             this.btnStopTimer.Visible = false;
             this.btnStopTimer.Click += new System.EventHandler(this.btnStopTimer_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gainsboro;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Enabled = false;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(603, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "0";
+            // 
             // Form1
             // 
             this.AcceptButton = this.button1;
@@ -251,6 +266,7 @@ namespace MyJournal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(624, 379);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnStopTimer);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
@@ -322,6 +338,7 @@ namespace MyJournal
         private Label label1;
         private ListBox listBox1;
         private Button btnStopTimer;
+        private Label label2;
     }
 }
 
