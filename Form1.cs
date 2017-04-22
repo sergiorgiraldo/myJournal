@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using Application = Microsoft.Office.Interop.Outlook.Application;
 
@@ -22,6 +23,7 @@ namespace MyJournal
         private string _tarefaPomodoro;
         DateTime toGo;
         FormPomodorocs frmPomodoro;
+        private int howManyTimers = 0;
 
         public Form1()
         {
@@ -169,15 +171,7 @@ namespace MyJournal
             if (tbxTarefa.Text.StartsWith(";"))
             {
                 _tarefaPomodoro = tbxTarefa.Text;
-                pomodoro.Interval = (int) updPomodoro.Value*60*1000;
-                pomodoro.Enabled = true;
-                _horaInicioPomodoro = DateTime.Now;
-                timerBarra.Enabled = true;
-                frmPomodoro.Show();
-                TopMost = true;
-                SetIcon(2);
-                //Opacity = 1;
-                ShowBtnTimers(true);
+                StartPomodoro();
             }
 
             tbxTarefa.Text = "";
@@ -185,6 +179,20 @@ namespace MyJournal
             WindowState = FormWindowState.Minimized;
 
             //Environment.Exit(0);
+        }
+
+        private void StartPomodoro()
+        {
+            pomodoro.Interval = (int) updPomodoro.Value*60*1000;
+            pomodoro.Enabled = true;
+            _horaInicioPomodoro = DateTime.Now;
+            timerBarra.Enabled = true;
+            frmPomodoro.Show();
+            TopMost = true;
+            SetIcon(2);
+            //Opacity = 1;
+            ShowBtnTimers(true);
+            howManyTimers += 1;
         }
 
         private void CreateTaskInOutlook(string tarefaTask, DateTime data, bool DoReminder)
@@ -286,19 +294,35 @@ namespace MyJournal
 
         private void PomodoroTick(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Normal;
-            pomodoro.Enabled = false;
-            timerBarra.Enabled = false;
-            Text = @"Journal";
-            updPomodoro.Value = 20;
-            frmPomodoro.Hide();
-            if (!sender.Equals(btnStopTimer))
-                MessageBox.Show(string.Format(@"FIM::{0}{1}Next !", _tarefaPomodoro, Environment.NewLine), @"Pomodoro",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-            TopMost = false;
-            SetIcon(1);
-            //Opacity = 0.85;
-            ShowBtnTimers(false);
+
+            if (howManyTimers < updManyTimes.Value)
+            {
+                pomodoro.Enabled = false;
+                timerBarra.Enabled = false;
+                frmPomodoro.UpdateLabel("--- : ---");
+                frmPomodoro.Update();
+                Text = string.Format("waiting 10 secs");
+                Thread.Sleep(new TimeSpan(0, 0, 0, 10));
+                StartPomodoro();
+            }
+            else
+            {
+                frmPomodoro.Hide();
+                WindowState = FormWindowState.Normal;
+                Text = @"Journal";
+                pomodoro.Enabled = false;
+                timerBarra.Enabled = false;
+
+                if (!sender.Equals(btnStopTimer))
+                    MessageBox.Show(string.Format(@"FIM::{0}{1}Next !", _tarefaPomodoro, Environment.NewLine), @"Pomodoro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                TopMost = false;
+                SetIcon(1);
+                ShowBtnTimers(false);
+                updPomodoro.Value = 20;
+                howManyTimers = 0;
+            }
         }
 
         private void TimerBarraTick(object sender, EventArgs e)
@@ -416,7 +440,8 @@ namespace MyJournal
                         utiliza a sintaxe do TODO.txt da Gina Trapani(http://todotxt.com/)
                     ao pressionar {alt}+{down}, abre-se visualizador das datas. Navegue com {left} ou {right}
                     ----
-                    version: 12-03-2014 12:25
+                    version: 22-04-2014 13:5
+5
                 ";
             MessageBox.Show(help, @"My Journal");
         }
@@ -605,6 +630,16 @@ namespace MyJournal
                 btnStopTimer.Visible = false;
                 updPomodoro.Visible = true;
             }
+        }
+
+        private void updManyTimes_Enter(object sender, EventArgs e)
+        {
+            updManyTimes.Select(0, updManyTimes.Text.Length);
+        }
+
+        private void updManyTimes_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            MessageBox.Show(@"quantos pomodoros rodar", @"My Journal");
         }
     }
 

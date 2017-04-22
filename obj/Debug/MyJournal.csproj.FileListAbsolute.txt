@@ -23,3 +23,4 @@ C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.Form1.resources
 C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.FormResultado.resources
 C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.csproj.GenerateResource.Cache
 C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.FormPomodorocs.resources
+C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.FormPomodorocs.resources
