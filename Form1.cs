@@ -32,7 +32,7 @@ namespace MyJournal
 
         private void Form1Load(object sender, EventArgs e)
         {
-            Height = 200;
+            Height = 210;
 
             SetIcon(1);
 
@@ -260,7 +260,7 @@ namespace MyJournal
 
         private void Form1KeyDown(object sender, KeyEventArgs e)
         {
-            if (Height == 200)
+            if (Height == 210)
                 if (e.Alt && e.KeyCode == Keys.Down)
                     label1_DoubleClick(sender, null);
             if (Height == 410)
@@ -525,7 +525,7 @@ namespace MyJournal
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            if (Height == 200)
+            if (Height == 210)
             {
                 label1.Text = "é";
                 Height = 410;
@@ -538,7 +538,7 @@ namespace MyJournal
             else
             {
                 label1.Text = "ê";
-                Height = 200;
+                Height = 210;
                 textBox2.Visible = false;
                 dateTimePicker2.Value = DateTime.Today;
             }
