@@ -184,7 +184,7 @@ namespace MyJournal
             // updManyTimes
             // 
             this.updManyTimes.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.updManyTimes.Location = new System.Drawing.Point(59, 139);
+            this.updManyTimes.Location = new System.Drawing.Point(59, 140);
             this.updManyTimes.Maximum = new decimal(new int[] {
             5,
             0,
@@ -257,13 +257,17 @@ namespace MyJournal
             // 
             // btnStopTimer
             // 
-            this.btnStopTimer.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.btnStopTimer.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopTimer.ForeColor = System.Drawing.Color.Red;
-            this.btnStopTimer.Location = new System.Drawing.Point(5, 140);
+            this.btnStopTimer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnStopTimer.Location = new System.Drawing.Point(5, 139);
+            this.btnStopTimer.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnStopTimer.Name = "btnStopTimer";
+            this.btnStopTimer.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.btnStopTimer.Size = new System.Drawing.Size(47, 25);
             this.btnStopTimer.TabIndex = 12;
-            this.btnStopTimer.Text = "<";
+            this.btnStopTimer.Text = "STOP";
+            this.btnStopTimer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnStopTimer.UseVisualStyleBackColor = true;
             this.btnStopTimer.Visible = false;
             this.btnStopTimer.Click += new System.EventHandler(this.btnStopTimer_Click);
@@ -297,11 +301,11 @@ namespace MyJournal
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.updPomodoro);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbxTarefa);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btnStopTimer);
+            this.Controls.Add(this.updPomodoro);
             this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
