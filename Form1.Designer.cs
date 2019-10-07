@@ -301,6 +301,7 @@ namespace MyJournal
             this.label2.Size = new System.Drawing.Size(19, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "0";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Form1
             // 
@@ -334,6 +335,7 @@ namespace MyJournal
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Journal";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1Load);
             this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Form1_HelpRequested);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1KeyDown);

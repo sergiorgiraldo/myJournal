@@ -24,6 +24,7 @@ namespace MyJournal
         DateTime toGo;
         FormPomodorocs frmPomodoro;
         private int howManyTimers = 0;
+        FileSystemWatcher watcher;
 
         public Form1()
         {
@@ -50,6 +51,26 @@ namespace MyJournal
             if (!Directory.Exists(_path))
                 Directory.CreateDirectory(_path);
 
+            LoadToDo();
+
+            WatchTodo();
+        }
+
+        private void WatchTodo()
+        {
+            watcher = new FileSystemWatcher
+            {
+                Path = _path,
+                NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+                                                        | NotifyFilters.FileName | NotifyFilters.DirectoryName,
+                Filter = "ToDo.txt"
+            };
+            watcher.Changed += OnChanged;
+            watcher.EnableRaisingEvents = true;
+        }
+
+        private void OnChanged(object source, FileSystemEventArgs e)
+        {
             LoadToDo();
         }
 
@@ -663,6 +684,17 @@ namespace MyJournal
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             ReadJournal();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            LoadToDo();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            watcher.Changed -= OnChanged;
+            watcher.Dispose();
         }
     }
 
