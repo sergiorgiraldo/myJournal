@@ -44,6 +44,7 @@ namespace MyJournal
             this.button4 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.updManyTimes = new System.Windows.Forms.NumericUpDown();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.timerBarra = new System.Windows.Forms.Timer(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -145,9 +146,9 @@ namespace MyJournal
             this.button2.Location = new System.Drawing.Point(105, 139);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 25);
+            this.button2.Size = new System.Drawing.Size(35, 25);
             this.button2.TabIndex = 5;
-            this.button2.Text = "&Hoje";
+            this.button2.Text = "&Hj";
             this.toolTip1.SetToolTip(this.button2, "ALT-C para abrir o dia de hoje");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -158,12 +159,12 @@ namespace MyJournal
             this.button4.FlatAppearance.BorderSize = 2;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(323, 139);
+            this.button4.Location = new System.Drawing.Point(360, 139);
             this.button4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 25);
+            this.button4.Size = new System.Drawing.Size(46, 25);
             this.button4.TabIndex = 8;
-            this.button4.Text = "&Diretório";
+            this.button4.Text = "&Dir";
             this.toolTip1.SetToolTip(this.button4, "ALT-D");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button3_Click);
@@ -173,7 +174,7 @@ namespace MyJournal
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(172, 140);
+            this.dateTimePicker2.Location = new System.Drawing.Point(145, 140);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(121, 23);
             this.dateTimePicker2.TabIndex = 6;
@@ -207,6 +208,21 @@ namespace MyJournal
             this.updManyTimes.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.updManyTimes_HelpRequested);
             this.updManyTimes.Enter += new System.EventHandler(this.updManyTimes_Enter);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(272, 143);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(69, 20);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "Todo\'s";
+            this.toolTip1.SetToolTip(this.checkBox1, "Mostrar todo\'s");
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // timerBarra
             // 
             this.timerBarra.Interval = 1000;
@@ -234,7 +250,7 @@ namespace MyJournal
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label1.Location = new System.Drawing.Point(299, 146);
+            this.label1.Location = new System.Drawing.Point(341, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(19, 15);
             this.label1.TabIndex = 7;
@@ -293,6 +309,7 @@ namespace MyJournal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(624, 379);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.updManyTimes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox1);
@@ -369,6 +386,7 @@ namespace MyJournal
         private Button btnStopTimer;
         private Label label2;
         private NumericUpDown updManyTimes;
+        private CheckBox checkBox1;
     }
 }
 

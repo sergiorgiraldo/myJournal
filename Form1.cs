@@ -244,7 +244,8 @@ namespace MyJournal
         private void GravarAFazer(string tarefa)
         {
             string aFazerPath = Path.Combine(_path, "todo.txt");
-
+            var lines = File.ReadAllLines(aFazerPath);
+            tarefa = lines.Length + 1 + ">" + tarefa;
             File.AppendAllText(aFazerPath, tarefa + Environment.NewLine);
         }
 
@@ -547,10 +548,27 @@ namespace MyJournal
         private void ReadJournal()
         {
             string path = GetPath(dateTimePicker2.Value);
-
+            var showTodos = checkBox1.Checked;
             try
             {
-                textBox2.Text = File.ReadAllText(path).Replace(dateTimePicker2.Value.ToString("yyyyMMdd") + " ","");
+                if (showTodos)
+                {
+                    textBox2.Text = File.ReadAllText(path)
+                        .Replace(dateTimePicker2.Value.ToString("yyyyMMdd") + " ", "");
+                }
+                else
+                {
+                    textBox2.Text = "";
+                    var lines = File.ReadAllLines(path);
+                    foreach (var line in lines)
+                    {
+                        if (!line.EndsWith("[ToDo]"))
+                        {
+                            textBox2.Text += line.Replace(dateTimePicker2.Value.ToString("yyyyMMdd") + " ", "") + Environment.NewLine;
+                        }
+                    }
+                    
+                }
             }
             catch
             {
@@ -640,6 +658,11 @@ namespace MyJournal
         private void updManyTimes_HelpRequested(object sender, HelpEventArgs hlpevent)
         {
             MessageBox.Show(@"quantos pomodoros rodar", @"My Journal");
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            ReadJournal();
         }
     }
 

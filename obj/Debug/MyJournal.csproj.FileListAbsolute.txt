@@ -24,3 +24,17 @@ C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.FormResultado.resources
 C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.csproj.GenerateResource.Cache
 C:\Users\sgiraldo\source\myJournal\obj\Debug\MyJournal.FormPomodorocs.resources
 C:\Users\Sérgio\Source\myJournal\obj\Debug\MyJournal.FormPomodorocs.resources
+C:\Users\sgiraldo\src\myJournal\bin\Debug\Resources\clock.ico
+C:\Users\sgiraldo\src\myJournal\bin\Debug\Resources\note.ico
+C:\Users\sgiraldo\src\myJournal\bin\Debug\MyJournal.exe.config
+C:\Users\sgiraldo\src\myJournal\bin\Debug\MyJournal.exe
+C:\Users\sgiraldo\src\myJournal\bin\Debug\MyJournal.pdb
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.csprojAssemblyReference.cache
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.csproj.ResolveComReference.cache
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.Form1.resources
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.FormPomodorocs.resources
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.FormResultado.resources
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.csproj.GenerateResource.cache
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.csproj.CoreCompileInputs.cache
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.exe
+C:\Users\sgiraldo\src\myJournal\obj\Debug\MyJournal.pdb
