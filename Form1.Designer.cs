@@ -338,6 +338,7 @@ namespace MyJournal
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1Load);
             this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Form1_HelpRequested);
+            this.Enter += new System.EventHandler(this.Form1Resize);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1KeyDown);
             this.Resize += new System.EventHandler(this.Form1Resize);
             ((System.ComponentModel.ISupportInitialize)(this.updPomodoro)).EndInit();
