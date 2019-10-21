@@ -266,8 +266,15 @@ namespace MyJournal
         {
             string aFazerPath = Path.Combine(_path, "todo.txt");
             var lines = File.ReadAllLines(aFazerPath);
-            tarefa = lines.Length + 1 + ">" + tarefa;
-            File.AppendAllText(aFazerPath, tarefa + Environment.NewLine);
+            var newLines = new List<string>();
+            var cnt = 1;
+            foreach(var line in lines){
+                var parts = line.Split('>');
+                newLines.Add(cnt + ">" + parts[1].Trim());
+                cnt += 1;
+            } 
+            newLines.Add(cnt + ">" + tarefa.Trim());
+            File.WriteAllText(aFazerPath, string.Join(Environment.NewLine, newLines));
         }
 
         private string GetPath(DateTime data)
