@@ -251,18 +251,24 @@ namespace MyJournal
             {
                 if (tarefa.ToUpper().StartsWith("TD"))
                 {
-                    GravarAFazer(tarefa.Substring(2));
+                    GravarAFazer(tarefa, "TODO");
                     LoadToDo();
                 }
+                else if (tarefa.ToUpper().StartsWith("FUP"))
+                {
+                    GravarAFazer(tarefa, "FUP");
+                    LoadToDo();
+                }
+
             }
             else
             {
-                GravarAFazer(tarefa);
+                GravarAFazer(tarefa, "TODO");
                 LoadToDo();
             }
         }
 
-        private void GravarAFazer(string tarefa)
+        private void GravarAFazer(string tarefa, string modo)
         {
             string aFazerPath = Path.Combine(_path, "todo.txt");
             var lines = File.ReadAllLines(aFazerPath);
@@ -272,8 +278,18 @@ namespace MyJournal
                 var parts = line.Split('>');
                 newLines.Add(cnt + ">" + parts[1].Trim());
                 cnt += 1;
-            } 
-            newLines.Add(cnt + ">" + tarefa.Trim());
+            }
+
+            switch (modo)
+            {
+                case "TODO":
+                    newLines.Add(cnt + ">" + tarefa.Substring(2).Trim());
+                    break;
+                case "FUP":
+                    newLines.Add(cnt + "> FUP>" + tarefa.Substring(3).Trim() + "::" + DateTime.Now.ToString("d"));
+                    break;
+            }
+
             File.WriteAllText(aFazerPath, string.Join(Environment.NewLine, newLines));
         }
 
