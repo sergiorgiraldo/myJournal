@@ -51,6 +51,7 @@ namespace MyJournal
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnStopTimer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.timerTodo = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.updPomodoro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updManyTimes)).BeginInit();
             this.SuspendLayout();
@@ -265,7 +266,7 @@ namespace MyJournal
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(5, 70);
+            this.listBox1.Location = new System.Drawing.Point(5, 77);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(613, 214);
             this.listBox1.TabIndex = 1;
@@ -302,6 +303,10 @@ namespace MyJournal
             this.label2.TabIndex = 2;
             this.label2.Text = "0";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // timerTodo
+            // 
+            this.timerTodo.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -390,6 +395,7 @@ namespace MyJournal
         private Label label2;
         private NumericUpDown updManyTimes;
         private CheckBox checkBox1;
+        private Timer timerTodo;
     }
 }
 

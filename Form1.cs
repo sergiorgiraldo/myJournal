@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -25,6 +26,9 @@ namespace MyJournal
         FormPomodorocs frmPomodoro;
         private int howManyTimers = 0;
         FileSystemWatcher watcher;
+        int loHeight = 380;
+        int hiHeight = 560;
+        private DateTime lastAlertForFups;
 
         public Form1()
         {
@@ -33,7 +37,7 @@ namespace MyJournal
 
         private void Form1Load(object sender, EventArgs e)
         {
-            Height = 260;
+            Height = loHeight;
 
             SetIcon(1);
 
@@ -88,7 +92,19 @@ namespace MyJournal
 
                 while ((line = reader.ReadLine()) != null)
                 {
-                    items.Add(line);
+                    if (line.Contains("FUP"))
+                    {
+                        Regex regex = new Regex(@"\d{2}\/\d{2}\/\d{4}");
+                        Match match = regex.Match(line);
+                        var span = (DateTime.Now.Date -
+                                   DateTime.ParseExact(match.Value, "dd/MM/yyyy", CultureInfo.CurrentUICulture)).Days;
+                        var newLine = line + " **" + span + (span == 1?" DIA":" DIAS") + "**";
+                        items.Add(newLine);
+                    }
+                    else
+                    {
+                        items.Add(line);
+                    }
                 }
             }
 
@@ -158,6 +174,8 @@ namespace MyJournal
             string tmpConteudo = DateTime.Now.ToString("yyyyMMdd") + " " + hora + "\t";
             if (tarefa.ToUpperInvariant().StartsWith("TD"))
                 tmpConteudo += tarefa.Substring(2) + " [ToDo]" + Environment.NewLine;
+            else if (tarefa.ToUpperInvariant().StartsWith("FUP"))
+                tmpConteudo += tarefa.Substring(3) + " [FUP]" + Environment.NewLine;
             else
                 tmpConteudo += tarefa + Environment.NewLine;
 
@@ -286,7 +304,7 @@ namespace MyJournal
                     newLines.Add(cnt + ">" + tarefa.Substring(2).Trim());
                     break;
                 case "FUP":
-                    newLines.Add(cnt + "> FUP>" + tarefa.Substring(3).Trim() + "::" + DateTime.Now.ToString("d"));
+                    newLines.Add(cnt + ">FUP>" + tarefa.Substring(3).Trim() + "::" + DateTime.Now.ToString("d"));
                     break;
             }
 
@@ -305,10 +323,10 @@ namespace MyJournal
 
         private void Form1KeyDown(object sender, KeyEventArgs e)
         {
-            if (Height == 260)
+            if (Height == loHeight)
                 if (e.Alt && e.KeyCode == Keys.Down)
                     label1_DoubleClick(sender, null);
-            if (Height == 420)
+            if (Height == hiHeight)
                 if (e.Alt && e.KeyCode == Keys.Up)
                     label1_DoubleClick(sender, null);
             if (e.Alt && e.KeyCode == Keys.C)
@@ -570,10 +588,10 @@ namespace MyJournal
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            if (Height == 260)
+            if (Height == loHeight)
             {
                 label1.Text = "é";
-                Height = 420;
+                Height = hiHeight;
                 ReadJournal();
 
                 textBox2.Visible = true;
@@ -583,7 +601,7 @@ namespace MyJournal
             else
             {
                 label1.Text = "ê";
-                Height = 260;
+                Height = loHeight;
                 textBox2.Visible = false;
                 dateTimePicker2.Value = DateTime.Today;
             }
@@ -718,6 +736,19 @@ namespace MyJournal
         {
             watcher.Changed -= OnChanged;
             watcher.Dispose();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Now.Hour > 9)
+            {
+                if (lastAlertForFups.Date != DateTime.Now.Date)
+                {
+                    LoadToDo();
+                    lastAlertForFups = DateTime.Now.Date;
+                }
+            }
+            
         }
     }
 
