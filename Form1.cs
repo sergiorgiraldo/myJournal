@@ -94,11 +94,16 @@ namespace MyJournal
                 {
                     if (line.Contains("FUP"))
                     {
-                        Regex regex = new Regex(@"\d{2}\/\d{2}\/\d{4}");
-                        Match match = regex.Match(line);
+                        Regex regexDate = new Regex(@"\d{2}\/\d{2}\/\d{4}");
+                        Match matchDate = regexDate.Match(line);
                         var span = (DateTime.Now.Date -
-                                   DateTime.ParseExact(match.Value, "dd/MM/yyyy", CultureInfo.CurrentUICulture)).Days;
-                        var newLine = line + " **" + span + (span == 1?" DIA":" DIAS") + "**";
+                                   DateTime.ParseExact(matchDate.Value, "dd/MM/yyyy", CultureInfo.CurrentUICulture)).Days;
+                        var FUP = line;
+                        Regex regexFUP = new Regex(@"(^.*) \*");
+                        Match matchFUP = regexFUP.Match(line);
+                        if (matchFUP.Success)
+                            FUP = matchFUP.Captures[0].Value;
+                        var newLine = FUP + " **" + span + (span == 1?" DIA":" DIAS") + "**";
                         items.Add(newLine);
                     }
                     else
@@ -304,7 +309,7 @@ namespace MyJournal
                     newLines.Add(cnt + ">" + tarefa.Substring(2).Trim());
                     break;
                 case "FUP":
-                    newLines.Add(cnt + ">FUP>" + tarefa.Substring(3).Trim() + "::" + DateTime.Now.ToString("d"));
+                    newLines.Add(cnt + ">FUP::" + tarefa.Substring(3).Trim() + "::" + DateTime.Now.ToString("d"));
                     break;
             }
 
