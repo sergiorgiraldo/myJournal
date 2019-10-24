@@ -306,6 +306,8 @@ namespace MyJournal
             // 
             // timerTodo
             // 
+            this.timerTodo.Enabled = true;
+            this.timerTodo.Interval = 72000000;
             this.timerTodo.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
