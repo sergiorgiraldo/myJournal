@@ -293,15 +293,17 @@ namespace MyJournal
             // 
             this.label2.BackColor = System.Drawing.Color.Gainsboro;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(599, 59);
+            this.label2.Location = new System.Drawing.Point(582, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 20);
+            this.label2.Size = new System.Drawing.Size(36, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "0";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // timerTodo
